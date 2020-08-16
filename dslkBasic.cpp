@@ -98,10 +98,7 @@ void sort(list &l){
         //Neu danh sach khong rong ta tien hanh sap xep danh sach
         NODE *pNode_i;
         NODE *pNode_j;
-        NODE *pNode_i_prev;
-        NODE *pNode_j_next;
         pNode_i=l.pHead;
-        pNode_i_prev=pNode_i;
         //pNode_i chay tu pHead den pTail-1
         //pnode_j chay tu pNode_i+1 den pTail
         while(pNode_i->next!=NULL){
