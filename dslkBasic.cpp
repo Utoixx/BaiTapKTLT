@@ -88,6 +88,38 @@ void search(list l){
         }
     }
 }
+//Sap xep theo a
+void sort(list &l){
+    //Kiem tra xem danh sach co rong khong
+    if(l.pHead==NULL){
+        printf("\nDanh sach rong!");
+        return;
+    }else{
+        //Neu danh sach khong rong ta tien hanh sap xep danh sach
+        NODE *pNode_i;
+        NODE *pNode_j;
+        NODE *pNode_i_prev;
+        NODE *pNode_j_next;
+        pNode_i=l.pHead;
+        pNode_i_prev=pNode_i;
+        //pNode_i chay tu pHead den pTail-1
+        //pnode_j chay tu pNode_i+1 den pTail
+        while(pNode_i->next!=NULL){
+            pNode_j=pNode_i->next;
+            while(pNode_j!=NULL){
+                if(pNode_i->data.a>=pNode_j->data.a){
+                    //Doi cho pNode_i cho pNode_j
+                    soNguyen data;
+                    data=pNode_i->data;
+                    pNode_i->data=pNode_j->data;
+                    pNode_j->data=data;
+                }
+                pNode_j=pNode_j->next;
+            }
+            pNode_i=pNode_i->next;
+        }
+    }
+}
 int main(){
     char selection;
     //Tao mot danh sach
@@ -106,6 +138,9 @@ int main(){
     show(ds);
     //Tim kiem trong danh sach theo a
     search(ds);
-
+    //Sap xep danh sach lien ket theo a
+    sort(ds);
+    printf("\nDanh sach lien ket sau khi sap xep la:");
+    show(ds);
     return 0;
 }
